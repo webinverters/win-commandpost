@@ -1,5 +1,5 @@
 {
-  "name": "lib-base",
+  "name": "win-commandpost",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -12,10 +12,10 @@
     "type": "git",
     "url": "git@github.com:webinverters/lib-base.git"
   },
-  "author": "Justin Mooser",
+  "author": "Tony Le, Justin Mooser",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/webinverters/lib-base/issues"
+    "url": "https://github.com/webinverters/win-commandpost/issues"
   },
   "homepage": "https://github.com/webinverters/lib-base",
   "devDependencies": {
