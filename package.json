@@ -35,5 +35,8 @@
     "sinon": "^1.14.1",
     "sinon-as-promised": "^2.0.3",
     "sinon-chai": "^2.6.0"
+  },
+  "dependencies": {
+    "win-common": "0.0.34"
   }
 }

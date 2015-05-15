@@ -1,29 +1,31 @@
-var p=require('bluebird')
-module.exports = function (state, dep, param) {
+var p = require('bluebird');
 
-  return p.resolve()
-    .then(function () {
-      return dep.getInstances(param.projectName)
+
+module.exports = function (param, dal, instance, event) {
+
+
+  var state = {};//holds all internal states
+
+  return dal.getInstances(param.projectName)
+    .then(function (resultInstances) {
+      state.instances = resultInstances;
     })
-    .then(function(result){
-      state.instances=result
-    })
     .then(function () {
-      return p.map(state.instances, function (instance) {
+      return p.map(state.instances, function (instanceObj) {
         return p.resolve()
           .then(function () {
-            return dep.installSecret(instance,param.projectName)
+            return instance.updateSecrets(instanceObj)
           })
           .then(function () {
-            return dep.runReleaseScript(instance,param.projectName)
+            return instance.runReleaseScript(instanceObj)
           })
       })
-        .catch(function (err) {
-          return dep.createEvent("failed to update instance")
-            .then(function () {
-              return {errorCode: 1, info: "Failed to update instance."}
-            })
-        })
+      .catch(function (err) {
+        return event.createEvent("failed to update instance")
+          .then(function () {
+            return {errorCode: 1, info: "Failed to update instance."}
+          })
+      })
     })
 };
 

@@ -9,11 +9,12 @@
  * @license Apache-2.0
  */
 
-
-var p=require('bluebird');
+require('win-common')();
 
 module.exports = function construct(config) {
-  var dep=require('./src/dependencies')(config);
+  var dal=require('./lib/dal')(config);
+  var event=require('./lib/event')(config);
+  var instanceMgr=require('./lib/instance-mgr')(config);
 
   var m = {};
 
@@ -41,7 +42,7 @@ module.exports = function construct(config) {
     // instanceMgr.release('instanceI)
     // instanceMgr.getLogStream(tag)
 
-    return require('./src/functions/updateInstance')({},dep,param)
+    return require('./src/functions/updateInstance')(param,dal, instanceMgr, event);
   };
 
 
