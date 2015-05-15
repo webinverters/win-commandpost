@@ -10,7 +10,7 @@ describe('updateInstance(instance)', function () {
     };
 
     instance = {
-      installSecrets: sinon.stub().resolves(true),
+      updateSecrets: sinon.stub().resolves(true),
       runReleaseScript: sinon.stub().resolves(true)
     };
 
@@ -42,7 +42,7 @@ describe('updateInstance(instance)', function () {
     it('installs the secrets on all running instances.', function () {
       return testFunction()
         .then(function () {
-          expect(instance.installSecrets).to.have.been.called;
+          expect(instance.updateSecrets).to.have.been.called;
         })
     });
 
