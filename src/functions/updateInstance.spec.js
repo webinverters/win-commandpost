@@ -6,7 +6,7 @@ describe('updateInstance(instance)', function () {
   beforeEach(function () {
     param = {
       projectName: "project1",
-      roleName: "worker"
+      env: "worker"
     };
 
     instance = {

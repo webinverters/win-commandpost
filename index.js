@@ -12,7 +12,14 @@
 require('win-common')();
 
 module.exports = function construct(config) {
-  var dal=require('./lib/dal')(config);
+
+  var dal;
+  if(config.dal){
+    dal=config.dal;
+  }else{
+    dal=require('./lib/dal')(config);
+  }
+
   var event=require('./lib/event')(config);
   var instanceMgr=require('./lib/instance-mgr')(config);
 
@@ -30,7 +37,7 @@ module.exports = function construct(config) {
    * @dependency: The release script can take an optional argument called "restart"
    * @param params.key if the project has a key, this is required to do any operations on the project.
    * @param params.projectName
-   * @param params.roleName
+   * @param params.env
    * @param [bool] params.autoCreateIfNotExists If true, and the instance doesnt exist for this role, it will create it first.
    */
   m.updateInstance = function(param) {
