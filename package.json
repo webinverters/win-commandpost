@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:webinverters/lib-base.git"
+    "url": "git@github.com:webinverters/win-commandpost.git"
   },
   "author": "Tony Le, Justin Mooser",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/webinverters/win-commandpost/issues"
   },
-  "homepage": "https://github.com/webinverters/lib-base",
+  "homepage": "https://github.com/webinverters/win-commandpost",
   "devDependencies": {
     "chai": "^1.x.x",
     "chai-as-promised": "^4.1.1",
