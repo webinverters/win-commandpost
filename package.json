@@ -37,6 +37,6 @@
     "sinon-chai": "^2.6.0"
   },
   "dependencies": {
-    "win-common": "0.0.34"
+    "win-common": "~0.0.34"
   }
 }
